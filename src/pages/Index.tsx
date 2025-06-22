@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Shield, AlertTriangle, FileText, Users, CheckCircle, TrendingUp, Brain, Database, Activity, Settings } from "lucide-react";
+import { Shield, AlertTriangle, FileText, Users, CheckCircle, TrendingUp, Database, Activity, Settings, LogOut } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -11,10 +11,31 @@ import { RiskDashboard } from "@/components/RiskDashboard";
 import { PatientDataSecurity } from "@/components/PatientDataSecurity";
 import { TrainingModule } from "@/components/TrainingModule";
 import { AuditPreparation } from "@/components/AuditPreparation";
+import { useAuth } from "@/hooks/useAuth";
+import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
+  const { user, signOut } = useAuth();
+  const { toast } = useToast();
 
+  const handleSignOut = async () => {
+    const { error } = await signOut();
+    if (error) {
+      toast({
+        title: "Sign out failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    } else {
+      toast({
+        title: "Signed out successfully",
+        description: "You have been logged out of HealthGuard360.",
+      });
+    }
+  };
+
+  // Mock data for now - will be replaced with real data from hooks
   const complianceStats = {
     overall: 87,
     hipaa: 92,
@@ -49,9 +70,17 @@ const Index = () => {
               <Badge variant="outline" className="border-[#ADD8E6] text-[#ADD8E6]">
                 HIPAA Compliant
               </Badge>
-              <Button variant="outline" size="sm" className="border-[#ADD8E6] text-[#ADD8E6] hover:bg-[#ADD8E6] hover:text-[#003366]">
-                <Settings className="h-4 w-4 mr-2" />
-                Settings
+              <span className="text-sm text-[#ADD8E6]">
+                Welcome, {user?.email}
+              </span>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="border-[#ADD8E6] text-[#ADD8E6] hover:bg-[#ADD8E6] hover:text-[#003366]"
+                onClick={handleSignOut}
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                Sign Out
               </Button>
             </div>
           </div>
