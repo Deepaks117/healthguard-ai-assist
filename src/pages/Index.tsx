@@ -1,22 +1,33 @@
+
 import { useState } from "react";
-import { Shield, AlertTriangle, FileText, Users, CheckCircle, TrendingUp, Database, Activity, Settings, LogOut, Brain } from "lucide-react";
+import { Shield, AlertTriangle, FileText, Users, CheckCircle, TrendingUp, Database, Activity, Settings, LogOut, Brain, Upload } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import { ComplianceAssistant } from "@/components/ComplianceAssistant";
 import { RiskDashboard } from "@/components/RiskDashboard";
 import { PatientDataSecurity } from "@/components/PatientDataSecurity";
 import { TrainingModule } from "@/components/TrainingModule";
 import { AuditPreparation } from "@/components/AuditPreparation";
+import { ComplianceChart } from "@/components/ComplianceChart";
 import { useAuth } from "@/hooks/useAuth";
 import { useToast } from "@/hooks/use-toast";
+import { useComplianceStats } from "@/hooks/useComplianceStats";
+import { useRecentActivities } from "@/hooks/useRecentActivities";
+import { useTrainingProgress } from "@/hooks/useTrainingProgress";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
   const { user, signOut } = useAuth();
   const { toast } = useToast();
+
+  // Fetch real data using our hooks
+  const { data: complianceStats, isLoading: isLoadingCompliance } = useComplianceStats();
+  const { data: recentActivities, isLoading: isLoadingActivities } = useRecentActivities();
+  const { data: trainingProgress, isLoading: isLoadingTraining } = useTrainingProgress();
 
   const handleSignOut = async () => {
     const { error } = await signOut();
@@ -34,21 +45,7 @@ const Index = () => {
     }
   };
 
-  // Mock data for now - will be replaced with real data from hooks
-  const complianceStats = {
-    overall: 87,
-    hipaa: 92,
-    gdpr: 84,
-    documentation: 89
-  };
-
-  const recentActivities = [
-    { id: 1, type: "compliance", message: "HIPAA risk assessment completed", time: "2 hours ago", status: "success" },
-    { id: 2, type: "risk", message: "New cybersecurity threat detected", time: "4 hours ago", status: "warning" },
-    { id: 3, type: "training", message: "Staff training module updated", time: "1 day ago", status: "info" },
-    { id: 4, type: "audit", message: "Audit report generated", time: "2 days ago", status: "success" }
-  ];
-
+  // Static upcoming tasks for now (to be enhanced in future iterations)
   const upcomingTasks = [
     { id: 1, task: "Complete quarterly HIPAA assessment", due: "3 days", priority: "high" },
     { id: 2, task: "Update patient consent forms", due: "1 week", priority: "medium" },
@@ -127,8 +124,14 @@ const Index = () => {
                       <Shield className="h-4 w-4 text-[#228B22]" />
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-[#228B22]">{complianceStats.overall}%</div>
-                      <Progress value={complianceStats.overall} className="mt-2" />
+                      {isLoadingCompliance ? (
+                        <div className="text-2xl font-bold text-gray-400">Loading...</div>
+                      ) : complianceStats?.totalReports === 0 ? (
+                        <div className="text-2xl font-bold text-gray-400">No data</div>
+                      ) : (
+                        <div className="text-2xl font-bold text-[#228B22]">{complianceStats?.overall || 0}%</div>
+                      )}
+                      <Progress value={complianceStats?.overall || 0} className="mt-2" />
                     </CardContent>
                   </Card>
 
@@ -138,8 +141,12 @@ const Index = () => {
                       <AlertTriangle className="h-4 w-4 text-[#003366]" />
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-[#003366]">Low</div>
-                      <p className="text-xs text-muted-foreground">3 active risks</p>
+                      <div className="text-2xl font-bold text-[#003366]">
+                        {complianceStats?.criticalIssues === 0 ? "Low" : complianceStats && complianceStats.criticalIssues > 5 ? "High" : "Medium"}
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        {complianceStats?.criticalIssues || 0} critical issues
+                      </p>
                     </CardContent>
                   </Card>
 
@@ -149,8 +156,14 @@ const Index = () => {
                       <Users className="h-4 w-4 text-[#ADD8E6]" />
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-[#ADD8E6]">78%</div>
-                      <p className="text-xs text-muted-foreground">12/15 staff completed</p>
+                      {isLoadingTraining ? (
+                        <div className="text-2xl font-bold text-gray-400">Loading...</div>
+                      ) : (
+                        <div className="text-2xl font-bold text-[#ADD8E6]">{trainingProgress?.progressPercentage || 0}%</div>
+                      )}
+                      <p className="text-xs text-muted-foreground">
+                        {trainingProgress?.completedModules || 0}/{trainingProgress?.totalModules || 0} modules completed
+                      </p>
                     </CardContent>
                   </Card>
 
@@ -160,54 +173,84 @@ const Index = () => {
                       <CheckCircle className="h-4 w-4 text-[#228B22]" />
                     </CardHeader>
                     <CardContent>
-                      <div className="text-2xl font-bold text-[#228B22]">Ready</div>
-                      <p className="text-xs text-muted-foreground">Last audit: 3 months ago</p>
+                      <div className="text-2xl font-bold text-[#228B22]">
+                        {complianceStats?.overall && complianceStats.overall >= 80 ? "Ready" : "Needs Work"}
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        {complianceStats?.totalReports || 0} reports generated
+                      </p>
                     </CardContent>
                   </Card>
                 </div>
 
-                {/* Compliance Breakdown */}
+                {/* Compliance Breakdown and Chart */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center space-x-2">
-                        <Brain className="h-5 w-5 text-[#003366]" />
-                        <span>Compliance Breakdown</span>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <span>HIPAA Compliance</span>
-                          <span className="font-semibold text-[#228B22]">{complianceStats.hipaa}%</span>
-                        </div>
-                        <Progress value={complianceStats.hipaa} />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <span>GDPR Compliance</span>
-                          <span className="font-semibold text-[#ADD8E6]">{complianceStats.gdpr}%</span>
-                        </div>
-                        <Progress value={complianceStats.gdpr} />
-                      </div>
-                      <div className="space-y-2">
-                        <div className="flex justify-between">
-                          <span>Documentation</span>
-                          <span className="font-semibold text-[#228B22]">{complianceStats.documentation}%</span>
-                        </div>
-                        <Progress value={complianceStats.documentation} />
-                      </div>
-                    </CardContent>
-                  </Card>
+                  {complianceStats && complianceStats.totalReports > 0 ? (
+                    <>
+                      <Card>
+                        <CardHeader>
+                          <CardTitle className="flex items-center space-x-2">
+                            <Brain className="h-5 w-5 text-[#003366]" />
+                            <span>Compliance Breakdown</span>
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                          <div className="space-y-2">
+                            <div className="flex justify-between">
+                              <span>HIPAA Compliance</span>
+                              <span className="font-semibold text-[#228B22]">{complianceStats.hipaa}%</span>
+                            </div>
+                            <Progress value={complianceStats.hipaa} />
+                          </div>
+                          <div className="space-y-2">
+                            <div className="flex justify-between">
+                              <span>GDPR Compliance</span>
+                              <span className="font-semibold text-[#ADD8E6]">{complianceStats.gdpr}%</span>
+                            </div>
+                            <Progress value={complianceStats.gdpr} />
+                          </div>
+                          <div className="space-y-2">
+                            <div className="flex justify-between">
+                              <span>Documentation</span>
+                              <span className="font-semibold text-[#228B22]">{complianceStats.documentation}%</span>
+                            </div>
+                            <Progress value={complianceStats.documentation} />
+                          </div>
+                        </CardContent>
+                      </Card>
 
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center space-x-2">
-                        <Activity className="h-5 w-5 text-[#003366]" />
-                        <span>Recent Activity</span>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
+                      <ComplianceChart 
+                        hipaa={complianceStats.hipaa}
+                        gdpr={complianceStats.gdpr}
+                        documentation={complianceStats.documentation}
+                      />
+                    </>
+                  ) : (
+                    <div className="lg:col-span-2">
+                      <Alert>
+                        <Upload className="h-4 w-4" />
+                        <AlertDescription>
+                          No compliance data yet. Upload a document in the Compliance tab to start tracking your compliance scores.
+                        </AlertDescription>
+                      </Alert>
+                    </div>
+                  )}
+                </div>
+
+                {/* Recent Activity */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center space-x-2">
+                      <Activity className="h-5 w-5 text-[#003366]" />
+                      <span>Recent Activity</span>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    {isLoadingActivities ? (
+                      <div className="text-gray-500">Loading activities...</div>
+                    ) : !recentActivities || recentActivities.length === 0 ? (
+                      <div className="text-gray-500">No recent activity</div>
+                    ) : (
                       <div className="space-y-3">
                         {recentActivities.map((activity) => (
                           <div key={activity.id} className="flex items-start space-x-3">
@@ -222,9 +265,9 @@ const Index = () => {
                           </div>
                         ))}
                       </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                    )}
+                  </CardContent>
+                </Card>
 
                 {/* Upcoming Tasks */}
                 <Card>
