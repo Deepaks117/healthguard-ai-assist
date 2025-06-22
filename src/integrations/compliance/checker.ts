@@ -97,33 +97,7 @@ export const scanTextForCompliance = (text: string): ComplianceResult => {
   return { score, issues };
 };
 
-export const scanDocumentForCompliance = async (file: File): Promise<ComplianceResult> => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    
-    reader.onload = (event) => {
-      const text = event.target?.result as string;
-      const result = scanTextForCompliance(text);
-      resolve(result);
-    };
-    
-    reader.onerror = () => {
-      reject(new Error('Failed to read file'));
-    };
-    
-    if (file.type === 'text/plain' || file.type === 'application/json') {
-      reader.readAsText(file);
-    } else {
-      // For other file types, we'll create a simple result
-      resolve({
-        score: 75,
-        issues: [{
-          type: 'info',
-          title: 'File Format Limitation',
-          description: 'Advanced scanning available for text files only',
-          suggestion: 'Upload documents in text format for comprehensive analysis'
-        }]
-      });
-    }
-  });
+// Updated function that accepts text directly instead of a File
+export const scanDocumentForCompliance = (text: string): ComplianceResult => {
+  return scanTextForCompliance(text);
 };
