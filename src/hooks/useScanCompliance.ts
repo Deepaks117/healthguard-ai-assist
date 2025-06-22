@@ -37,7 +37,7 @@ export const useScanCompliance = () => {
       console.log('Scanning document text, length:', text.length);
       const result = scanDocumentForCompliance(text);
       
-      // Save scan result to database
+      // Save scan result to database - cast issues to Json type
       const { error: insertError } = await supabase
         .from('compliance_reports')
         .insert({
@@ -45,7 +45,7 @@ export const useScanCompliance = () => {
           document_id: documentPath || null,
           document_name: documentName || 'Text Input',
           score: result.score,
-          issues: result.issues,
+          issues: result.issues as any, // Cast to Json type for Supabase
           scanned_text: text.substring(0, 1000) // Store first 1000 chars
         });
 
@@ -70,7 +70,7 @@ export const useScanCompliance = () => {
             document_name: documentName || 'Text Input',
             score: result.score,
             issues_count: result.issues.length
-          }
+          } as any // Cast to Json type for Supabase
         });
 
       setScanResult(result);
