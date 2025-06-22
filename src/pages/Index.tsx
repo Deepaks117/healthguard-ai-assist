@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Shield, AlertTriangle, FileText, Users, CheckCircle, TrendingUp, Database, Activity, Settings, LogOut } from "lucide-react";
+import { Shield, AlertTriangle, FileText, Users, CheckCircle, TrendingUp, Database, Activity, Settings, LogOut, Brain } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
