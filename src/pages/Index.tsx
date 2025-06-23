@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -15,6 +14,10 @@ import { useComplianceStats } from '@/hooks/useComplianceStats';
 import { useRecentActivities } from '@/hooks/useRecentActivities';
 import { useTrainingProgress } from '@/hooks/useTrainingProgress';
 import { ComplianceChart } from '@/components/ComplianceChart';
+import { ComplianceMetrics } from '@/components/ComplianceMetrics';
+import { ComplianceHistoryChart } from '@/components/ComplianceHistoryChart';
+import { RiskAssessment } from '@/components/RiskAssessment';
+import { ComplianceReports } from '@/components/ComplianceReports';
 import { Header } from '@/components/Header';
 
 const Index = () => {
@@ -93,8 +96,9 @@ const Index = () => {
         </div>
 
         <Tabs defaultValue="dashboard" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-4">
+          <TabsList className="grid w-full grid-cols-5">
             <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
+            <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="scan">Document Scanner</TabsTrigger>
             <TabsTrigger value="training">Training</TabsTrigger>
             <TabsTrigger value="audit">Audit Trail</TabsTrigger>
@@ -164,7 +168,7 @@ const Index = () => {
               </Card>
             </div>
 
-            {/* Compliance Chart */}
+            {/* Compliance Chart and Recent Activities */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               <div>
                 {complianceStats && (
@@ -176,7 +180,6 @@ const Index = () => {
                 )}
               </div>
 
-              {/* Recent Activities */}
               <Card>
                 <CardHeader>
                   <CardTitle>Recent Activities</CardTitle>
@@ -202,6 +205,33 @@ const Index = () => {
                   )}
                 </CardContent>
               </Card>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="analytics" className="space-y-6">
+            {/* Enhanced Analytics Dashboard */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div>
+                {complianceStats && (
+                  <ComplianceMetrics
+                    overall={complianceStats.overall}
+                    hipaa={complianceStats.hipaa}
+                    gdpr={complianceStats.gdpr}
+                    documentation={complianceStats.documentation}
+                    criticalIssues={complianceStats.criticalIssues}
+                    warningIssues={complianceStats.warningIssues}
+                    infoIssues={complianceStats.infoIssues}
+                  />
+                )}
+              </div>
+              <div>
+                <ComplianceHistoryChart />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <RiskAssessment />
+              <ComplianceReports />
             </div>
           </TabsContent>
 
