@@ -10,6 +10,8 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Documents from "./pages/Documents";
+import Training from "./pages/Training";
+import Audit from "./pages/Audit";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,30 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <Index />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/documents" 
+              element={
+                <ProtectedRoute>
+                  <Documents />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/training" 
+              element={
+                <ProtectedRoute>
+                  <Training />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/audit" 
+              element={
+                <ProtectedRoute>
+                  <Audit />
                 </ProtectedRoute>
               } 
             />

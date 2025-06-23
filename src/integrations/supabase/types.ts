@@ -292,7 +292,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      log_user_action: {
+        Args: {
+          action_type: string
+          resource_type?: string
+          resource_id?: string
+          details?: Json
+        }
+        Returns: string
+      }
     }
     Enums: {
       issue_type: "critical" | "warning" | "info"

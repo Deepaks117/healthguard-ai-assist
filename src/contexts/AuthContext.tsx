@@ -32,6 +32,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setSession(session);
         setUser(session?.user ?? null);
         setIsLoading(false);
+
+        // Log authentication events
+        if (event === 'SIGNED_IN' && session?.user) {
+          setTimeout(() => {
+            supabase.rpc('log_user_action', {
+              action_type: 'login',
+              details: { timestamp: new Date().toISOString() }
+            }).catch(console.error);
+          }, 0);
+        }
       }
     );
 

@@ -1,5 +1,5 @@
 
-import { Shield, User, LogOut, FileText } from 'lucide-react';
+import { Shield, User, LogOut, FileText, BookOpen, ClipboardCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link, useLocation } from 'react-router-dom';
 import {
@@ -12,14 +12,21 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
+import { useAuditLogger } from '@/hooks/useAuditLogger';
 
 export const Header = () => {
   const { user, signOut } = useAuth();
   const { toast } = useToast();
+  const { logAction } = useAuditLogger();
   const location = useLocation();
 
   const handleSignOut = async () => {
     try {
+      logAction({
+        action: 'logout',
+        details: { timestamp: new Date().toISOString() }
+      });
+      
       await signOut();
       toast({
         title: 'Signed out successfully',
@@ -34,6 +41,13 @@ export const Header = () => {
     }
   };
 
+  const navItems = [
+    { path: '/', label: 'Dashboard', icon: Shield },
+    { path: '/documents', label: 'Documents', icon: FileText },
+    { path: '/training', label: 'Training', icon: BookOpen },
+    { path: '/audit', label: 'Audit Trail', icon: ClipboardCheck },
+  ];
+
   return (
     <header className="bg-white border-b border-gray-200 px-6 py-4">
       <div className="flex items-center justify-between">
@@ -44,27 +58,20 @@ export const Header = () => {
           </Link>
           
           <nav className="hidden md:flex items-center space-x-4">
-            <Link
-              to="/"
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                location.pathname === '/'
-                  ? 'bg-[#003366] text-white'
-                  : 'text-gray-700 hover:text-[#003366] hover:bg-gray-100'
-              }`}
-            >
-              Dashboard
-            </Link>
-            <Link
-              to="/documents"
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center space-x-1 ${
-                location.pathname === '/documents'
-                  ? 'bg-[#003366] text-white'
-                  : 'text-gray-700 hover:text-[#003366] hover:bg-gray-100'
-              }`}
-            >
-              <FileText className="h-4 w-4" />
-              <span>Documents</span>
-            </Link>
+            {navItems.map(({ path, label, icon: Icon }) => (
+              <Link
+                key={path}
+                to={path}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center space-x-1 ${
+                  location.pathname === path
+                    ? 'bg-[#003366] text-white'
+                    : 'text-gray-700 hover:text-[#003366] hover:bg-gray-100'
+                }`}
+              >
+                <Icon className="h-4 w-4" />
+                <span>{label}</span>
+              </Link>
+            ))}
           </nav>
         </div>
         
@@ -80,7 +87,7 @@ export const Header = () => {
                 <span className="sr-only">User menu</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="end" className="bg-white">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleSignOut}>
