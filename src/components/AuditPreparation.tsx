@@ -62,7 +62,7 @@ export const AuditPreparation = () => {
     { task: "Staff Training Renewal", due: "2024-08-01", daysLeft: 62, priority: "medium" }
   ];
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
       case "completed": return "text-[#228B22]";
       case "in-progress": return "text-[#ADD8E6]";
@@ -71,7 +71,7 @@ export const AuditPreparation = () => {
     }
   };
 
-  const getStatusIcon = (status) => {
+  const getStatusIcon = (status: string) => {
     switch (status) {
       case "completed": return <CheckCircle className="h-4 w-4 text-[#228B22]" />;
       case "in-progress": return <div className="h-4 w-4 border-2 border-[#ADD8E6] rounded-full animate-spin" />;
@@ -80,7 +80,7 @@ export const AuditPreparation = () => {
     }
   };
 
-  const getPriorityColor = (priority) => {
+  const getPriorityColor = (priority: string) => {
     switch (priority) {
       case "high": return "border-red-500 text-red-500";
       case "medium": return "border-yellow-500 text-yellow-500";

@@ -33,11 +33,20 @@ export const PatientDataSecurity = () => {
   ];
 
   const integrations = [
-    { name: "Epic EHR", status: "Connected", lastSync: "15 minutes ago", records: 892 },
-    { name: "Cerner PowerChart", status: "Connected", lastSync: "1 hour ago", records: 355 },
-    { name: "Lab Corp Portal", status: "Pending", lastSync: "N/A", records: 0 },
-    { name: "Imaging System", status: "Connected", lastSync: "3 hours ago", records: 156 }
+    { name: "Epic EHR", status: "Connected", lastSync: "15 minutes ago", records: 892, health: "Excellent" },
+    { name: "Cerner PowerChart", status: "Connected", lastSync: "1 hour ago", records: 355, health: "Good" },
+    { name: "Lab Corp Portal", status: "Configuration Required", lastSync: "Setup pending", records: 0, health: "Setup Required" },
+    { name: "Imaging System", status: "Connected", lastSync: "3 hours ago", records: 156, health: "Good" }
   ];
+
+  const getIntegrationStatusColor = (status: string) => {
+    switch (status) {
+      case 'Connected': return 'border-[#228B22] text-[#228B22]';
+      case 'Configuration Required': return 'border-yellow-500 text-yellow-500';
+      case 'Error': return 'border-red-500 text-red-500';
+      default: return 'border-gray-500 text-gray-500';
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -167,17 +176,22 @@ export const PatientDataSecurity = () => {
                       <p className="text-sm text-gray-500">
                         {integration.records} records • Last sync: {integration.lastSync}
                       </p>
+                      <p className="text-xs text-gray-400">Health: {integration.health}</p>
                     </div>
                   </div>
-                  <Badge 
-                    variant="outline" 
-                    className={integration.status === 'Connected' ? 
-                      'border-[#228B22] text-[#228B22]' : 
-                      'border-yellow-500 text-yellow-500'
-                    }
-                  >
-                    {integration.status}
-                  </Badge>
+                  <div className="flex flex-col items-end space-y-1">
+                    <Badge 
+                      variant="outline" 
+                      className={getIntegrationStatusColor(integration.status)}
+                    >
+                      {integration.status}
+                    </Badge>
+                    {integration.status === 'Configuration Required' && (
+                      <Button size="sm" variant="outline" className="text-xs">
+                        Configure
+                      </Button>
+                    )}
+                  </div>
                 </div>
               ))}
               

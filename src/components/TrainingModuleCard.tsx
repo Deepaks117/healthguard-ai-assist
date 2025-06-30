@@ -80,37 +80,35 @@ export const TrainingModuleCard = ({
               Completed on {new Date(module.progress.completed_at!).toLocaleDateString()}
             </p>
           </div>
-        ) : (
+        ) : module.progress && !module.progress.completed ? (
           <div className="space-y-3">
-            {module.progress ? (
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">In Progress</span>
-                  <Badge variant="secondary">Started</Badge>
-                </div>
-                <Progress value={50} className="w-full" />
-                <div className="flex space-x-2">
-                  <Button
-                    onClick={() => onComplete(module.id, Math.floor(Math.random() * 20) + 80)}
-                    disabled={isCompleting}
-                    className="flex-1"
-                  >
-                    <Award className="h-4 w-4 mr-2" />
-                    Complete Module
-                  </Button>
-                </div>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium">In Progress</span>
+                <Badge variant="secondary">Started</Badge>
               </div>
-            ) : (
-              <Button
-                onClick={() => onStart(module.id)}
-                disabled={isStarting}
-                className="w-full"
-              >
-                <PlayCircle className="h-4 w-4 mr-2" />
-                {isStarting ? 'Starting...' : 'Start Module'}
-              </Button>
-            )}
+              <Progress value={50} className="w-full" />
+              <div className="flex space-x-2">
+                <Button
+                  onClick={() => onComplete(module.id, Math.floor(Math.random() * 20) + 80)}
+                  disabled={isCompleting}
+                  className="flex-1"
+                >
+                  <Award className="h-4 w-4 mr-2" />
+                  Complete Module
+                </Button>
+              </div>
+            </div>
           </div>
+        ) : (
+          <Button
+            onClick={() => onStart(module.id)}
+            disabled={isStarting}
+            className="w-full"
+          >
+            <PlayCircle className="h-4 w-4 mr-2" />
+            {isStarting ? 'Starting...' : 'Start Module'}
+          </Button>
         )}
       </CardContent>
     </Card>
