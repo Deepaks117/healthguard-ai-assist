@@ -35,11 +35,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
         // Log authentication events
         if (event === 'SIGNED_IN' && session?.user) {
-          setTimeout(() => {
-            supabase.rpc('log_user_action', {
-              action_type: 'login',
-              details: { timestamp: new Date().toISOString() }
-            }).catch(console.error);
+          setTimeout(async () => {
+            try {
+              await supabase.rpc('log_user_action', {
+                action_type: 'login',
+                details: { timestamp: new Date().toISOString() }
+              });
+            } catch (error) {
+              console.error('Failed to log login action:', error);
+            }
           }, 0);
         }
       }
