@@ -1,0 +1,2848 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+The content has been processed where content has been compressed (code blocks are separated by ⋮---- delimiter).
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Content has been compressed - code blocks are separated by ⋮---- delimiter
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+components.json
+eslint.config.js
+healthguard_flows.py
+index.html
+monitoring/healthguard_flows.py
+monitoring/README.md
+monitoring/requirements.txt
+monitoring/run_monitoring.py
+package.json
+postcss.config.js
+public/placeholder.svg
+public/robots.txt
+README.md
+src/App.css
+src/App.tsx
+src/components/AuditPreparation.tsx
+src/components/ComplianceAssistant.tsx
+src/components/ComplianceChart.tsx
+src/components/Header.tsx
+src/components/PatientDataSecurity.tsx
+src/components/ProtectedRoute.tsx
+src/components/RiskDashboard.tsx
+src/components/TrainingModule.tsx
+src/components/ui/accordion.tsx
+src/components/ui/alert-dialog.tsx
+src/components/ui/alert.tsx
+src/components/ui/aspect-ratio.tsx
+src/components/ui/avatar.tsx
+src/components/ui/badge.tsx
+src/components/ui/breadcrumb.tsx
+src/components/ui/button.tsx
+src/components/ui/calendar.tsx
+src/components/ui/card.tsx
+src/components/ui/carousel.tsx
+src/components/ui/chart.tsx
+src/components/ui/checkbox.tsx
+src/components/ui/collapsible.tsx
+src/components/ui/command.tsx
+src/components/ui/context-menu.tsx
+src/components/ui/dialog.tsx
+src/components/ui/drawer.tsx
+src/components/ui/dropdown-menu.tsx
+src/components/ui/form.tsx
+src/components/ui/hover-card.tsx
+src/components/ui/input-otp.tsx
+src/components/ui/input.tsx
+src/components/ui/label.tsx
+src/components/ui/menubar.tsx
+src/components/ui/navigation-menu.tsx
+src/components/ui/pagination.tsx
+src/components/ui/popover.tsx
+src/components/ui/progress.tsx
+src/components/ui/radio-group.tsx
+src/components/ui/resizable.tsx
+src/components/ui/scroll-area.tsx
+src/components/ui/select.tsx
+src/components/ui/separator.tsx
+src/components/ui/sheet.tsx
+src/components/ui/sidebar.tsx
+src/components/ui/skeleton.tsx
+src/components/ui/slider.tsx
+src/components/ui/sonner.tsx
+src/components/ui/switch.tsx
+src/components/ui/table.tsx
+src/components/ui/tabs.tsx
+src/components/ui/textarea.tsx
+src/components/ui/toast.tsx
+src/components/ui/toaster.tsx
+src/components/ui/toggle-group.tsx
+src/components/ui/toggle.tsx
+src/components/ui/tooltip.tsx
+src/components/ui/use-toast.ts
+src/contexts/AuthContext.tsx
+src/hooks/use-mobile.tsx
+src/hooks/use-toast.ts
+src/hooks/useAuth.tsx
+src/hooks/useComplianceStats.ts
+src/hooks/useRecentActivities.ts
+src/hooks/useScanCompliance.ts
+src/hooks/useTrainingProgress.ts
+src/hooks/useUploadDocument.ts
+src/index.css
+src/integrations/compliance/checker.ts
+src/integrations/supabase/auth.ts
+src/integrations/supabase/client.ts
+src/integrations/supabase/storage.ts
+src/integrations/supabase/types.ts
+src/lib/utils.ts
+src/main.tsx
+src/pages/Index.tsx
+src/pages/Login.tsx
+src/pages/NotFound.tsx
+src/pages/Signup.tsx
+src/vite-env.d.ts
+supabase/config.toml
+supabase/functions/complianceScan/index.ts
+supabase/migrations/20250622154403-37745fb7-f4cf-4805-a518-603293ecaff5.sql
+tailwind.config.ts
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vite.config.ts
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path="components.json">
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/index.css",
+    "baseColor": "slate",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  }
+}
+</file>
+
+<file path="eslint.config.js">
+export default tseslint.config(
+</file>
+
+<file path="healthguard_flows.py">
+"""
+HealthGuard360 Data Flow Monitoring with Prefect
+This module monitors and visualizes data flow through your healthcare compliance platform.
+"""
+⋮----
+# ============================================================================
+# HEALTHGUARD360 SYSTEM COMPONENTS
+⋮----
+@task
+def monitor_user_authentication(user_id: str, action: str, timestamp: Optional[str] = None) -> Dict[str, Any]
+⋮----
+"""Monitor user authentication flow in HealthGuard360"""
+logger = get_run_logger()
+⋮----
+timestamp = datetime.now().isoformat()
+⋮----
+flow_data = {
+⋮----
+"duration_ms": 150,  # Simulated response time
+⋮----
+@task
+def monitor_document_upload(user_id: str, document_name: str, file_size: int, file_type: str) -> Dict[str, Any]
+⋮----
+"""Monitor document upload flow in HealthGuard360"""
+⋮----
+"duration_ms": 2500,  # Simulated upload time
+⋮----
+@task
+def monitor_compliance_scan(user_id: str, document_id: str, scan_type: str, document_content: str) -> Dict[str, Any]
+⋮----
+"""Monitor compliance scanning flow in HealthGuard360"""
+⋮----
+# Simulate AI analysis
+analysis_duration = 3000  # 3 seconds for AI processing
+issues_found = len([word for word in document_content.lower().split() if word in ['patient', 'medical', 'health']])
+⋮----
+@task
+def monitor_database_operations(user_id: str, operation: str, table: str, record_count: int = 1) -> Dict[str, Any]
+⋮----
+"""Monitor database operations flow in HealthGuard360"""
+⋮----
+"duration_ms": 50,  # Fast database operations
+⋮----
+@task
+def monitor_training_progress(user_id: str, module_name: str, progress_percentage: int) -> Dict[str, Any]
+⋮----
+"""Monitor training progress flow in HealthGuard360"""
+⋮----
+@task
+def monitor_notification_system(user_id: str, notification_type: str, message: str, channel: str = "email") -> Dict[str, Any]
+⋮----
+"""Monitor notification system flow in HealthGuard360"""
+⋮----
+@task
+def generate_system_summary(flow_data: List[Dict[str, Any]]) -> Dict[str, Any]
+⋮----
+"""Generate comprehensive system summary and architecture insights"""
+⋮----
+# Calculate system metrics
+total_operations = len(flow_data)
+components_used = list(set(item["component"] for item in flow_data))
+users_involved = list(set(item["user_id"] for item in flow_data))
+total_duration = sum(item.get("duration_ms", 0) for item in flow_data)
+avg_duration = total_duration / total_operations if total_operations > 0 else 0
+⋮----
+# Identify data flow patterns
+flow_patterns = {}
+⋮----
+pattern = item.get("flow_step", "unknown")
+⋮----
+summary = {
+⋮----
+# MAIN DATA FLOW MONITORING FLOWS
+⋮----
+"""
+    Monitor a complete user journey through HealthGuard360 system
+    This simulates a real user's complete workflow
+    """
+⋮----
+flow_data = []
+⋮----
+# 1. User Authentication
+⋮----
+auth_data = monitor_user_authentication(user_id, "login")
+⋮----
+# 2. Document Upload
+⋮----
+upload_data = monitor_document_upload(
+⋮----
+1024000,  # 1MB file
+⋮----
+# 3. Database Operation (save document metadata)
+⋮----
+db_data = monitor_database_operations(user_id, "INSERT", "compliance_reports", 1)
+⋮----
+# 4. Compliance Scan
+⋮----
+sample_content = "This document contains patient medical information and must comply with HIPAA regulations."
+scan_data = monitor_compliance_scan(user_id, "doc_123", scan_type, sample_content)
+⋮----
+# 5. Database Operation (save scan results)
+⋮----
+db_data2 = monitor_database_operations(user_id, "UPDATE", "compliance_reports", 1)
+⋮----
+# 6. Training Progress Update
+⋮----
+training_data = monitor_training_progress(user_id, "HIPAA Compliance", 75)
+⋮----
+# 7. Notification
+⋮----
+notification_data = monitor_notification_system(
+⋮----
+# 8. Generate System Summary
+⋮----
+summary = generate_system_summary(flow_data)
+⋮----
+"""
+    Test system performance with multiple users and operations
+    """
+⋮----
+all_flow_data = []
+⋮----
+user_id = f"test_user_{user_num + 1}"
+⋮----
+# Simulate different operations
+⋮----
+data = monitor_user_authentication(user_id, "login")
+⋮----
+data = monitor_document_upload(user_id, f"test_doc_{user_num}.pdf", 512000, "application/pdf")
+⋮----
+data = monitor_compliance_scan(user_id, f"doc_{user_num}_{op_num}", "GDPR", "Sample content for testing")
+⋮----
+# Generate performance summary
+summary = generate_system_summary(all_flow_data)
+⋮----
+# UTILITY FUNCTIONS
+⋮----
+def run_monitoring_demo()
+⋮----
+"""Run a demonstration of HealthGuard360 monitoring"""
+⋮----
+# Run complete user journey
+⋮----
+journey_result = monitor_complete_user_journey()
+⋮----
+# Run performance test
+⋮----
+perf_result = performance_testing_flow(3, 2)
+⋮----
+# Run the monitoring demo
+</file>
+
+<file path="index.html">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>healthguard-ai-assist</title>
+    <meta name="description" content="Lovable Generated Project" />
+    <meta name="author" content="Lovable" />
+
+    <meta property="og:title" content="healthguard-ai-assist" />
+    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="monitoring/healthguard_flows.py">
+"""
+HealthGuard360 Data Flow Monitoring with Prefect
+This module monitors and visualizes data flow through your healthcare compliance platform.
+"""
+⋮----
+# ============================================================================
+# HEALTHGUARD360 SYSTEM COMPONENTS
+⋮----
+@task
+def monitor_user_authentication(user_id: str, action: str, timestamp: Optional[str] = None) -> Dict[str, Any]
+⋮----
+"""Monitor user authentication flow in HealthGuard360"""
+logger = get_run_logger()
+⋮----
+timestamp = datetime.now().isoformat()
+⋮----
+flow_data = {
+⋮----
+@task
+def monitor_document_upload(user_id: str, document_name: str, file_size: int, file_type: str) -> Dict[str, Any]
+⋮----
+@task
+def monitor_compliance_scan(user_id: str, document_id: str, scan_type: str, document_content: str) -> Dict[str, Any]
+⋮----
+analysis_duration = 3000
+issues_found = len([word for word in document_content.lower().split() if word in ['patient', 'medical', 'health']])
+⋮----
+@task
+def monitor_database_operations(user_id: str, operation: str, table: str, record_count: int = 1) -> Dict[str, Any]
+⋮----
+@task
+def monitor_training_progress(user_id: str, module_name: str, progress_percentage: int) -> Dict[str, Any]
+⋮----
+@task
+def monitor_notification_system(user_id: str, notification_type: str, message: str, channel: str = "email") -> Dict[str, Any]
+⋮----
+@task
+def generate_system_summary(flow_data: List[Dict[str, Any]]) -> Dict[str, Any]
+⋮----
+total_operations = len(flow_data)
+components_used = list(set(item["component"] for item in flow_data))
+users_involved = list(set(item["user_id"] for item in flow_data))
+total_duration = sum(item.get("duration_ms", 0) for item in flow_data)
+avg_duration = total_duration / total_operations if total_operations > 0 else 0
+flow_patterns = {}
+⋮----
+pattern = item.get("flow_step", "unknown")
+⋮----
+summary = {
+⋮----
+# MAIN DATA FLOW MONITORING FLOWS
+⋮----
+flow_data = []
+⋮----
+auth_data = monitor_user_authentication(user_id, "login")
+⋮----
+upload_data = monitor_document_upload(user_id, document_name, 1024000, "application/pdf")
+⋮----
+db_data = monitor_database_operations(user_id, "INSERT", "compliance_reports", 1)
+⋮----
+sample_content = "This document contains patient medical information and must comply with HIPAA regulations."
+scan_data = monitor_compliance_scan(user_id, "doc_123", scan_type, sample_content)
+⋮----
+db_data2 = monitor_database_operations(user_id, "UPDATE", "compliance_reports", 1)
+⋮----
+training_data = monitor_training_progress(user_id, "HIPAA Compliance", 75)
+⋮----
+notification_data = monitor_notification_system(user_id, "scan_complete", f"Compliance scan completed for {document_name}. Found {scan_data['issues_found']} potential issues.", "email")
+⋮----
+summary = generate_system_summary(flow_data)
+⋮----
+@flow(name="healthguard360-performance-test")
+def performance_testing_flow(num_users: int = 5, operations_per_user: int = 3)
+⋮----
+all_flow_data = []
+⋮----
+user_id = f"test_user_{user_num + 1}"
+⋮----
+data = monitor_user_authentication(user_id, "login")
+⋮----
+data = monitor_document_upload(user_id, f"test_doc_{user_num}.pdf", 512000, "application/pdf")
+⋮----
+data = monitor_compliance_scan(user_id, f"doc_{user_num}_{op_num}", "GDPR", "Sample content for testing")
+⋮----
+summary = generate_system_summary(all_flow_data)
+⋮----
+def run_monitoring_demo()
+⋮----
+journey_result = monitor_complete_user_journey()
+⋮----
+perf_result = performance_testing_flow(3, 2)
+</file>
+
+<file path="monitoring/README.md">
+# HealthGuard360 Data Flow Monitoring
+
+## Overview
+
+This monitoring setup uses Prefect to visualize and analyze data flow through your HealthGuard360 healthcare compliance platform. It provides insights into system architecture, performance, and data patterns without interfering with your main application.
+
+## 🎯 What You'll Learn
+
+### **Data Flow Visualization**
+- Complete user journey tracking
+- Component interaction mapping
+- Performance metrics monitoring
+- System architecture insights
+
+### **Architecture Understanding**
+- How Supabase Auth flows to your database
+- Document upload to storage to AI analysis
+- Training progress tracking
+- Notification system flow
+
+### **Performance Insights**
+- Response time tracking
+- Throughput measurements
+- Component efficiency analysis
+- Bottleneck identification
+
+## 🚀 Quick Start
+
+### 1. Install Dependencies
+```bash
+cd monitoring
+pip install -r requirements.txt
+```
+
+### 2. Set Up Prefect Cloud
+1. Go to [Prefect Cloud](https://cloud.prefect.io)
+2. Sign up/login with your account
+3. Get your API key from Settings → API Keys
+4. Configure Prefect with your API key:
+   ```bash
+   prefect cloud login
+   ```
+
+### 3. Run Monitoring
+```bash
+python run_monitoring.py
+```
+
+## 📊 What the Monitoring Shows
+
+### **Complete User Journey**
+1. **User Authentication** → Supabase Auth → Session Management
+2. **Document Upload** → File Validation → Supabase Storage → Metadata Save
+3. **Compliance Scan** → AI Analysis → Result Processing → Database Save
+4. **Training Progress** → Progress Tracking → Completion Check → Certificate Generation
+5. **Notification** → User Alert → Dashboard Update
+
+### **System Components Monitored**
+- **Authentication**: User login/logout flows
+- **Storage**: Document upload and management
+- **AI Analysis**: Compliance scanning and analysis
+- **Database**: Data persistence operations
+- **Training**: Learning management system
+- **Notifications**: Communication system
+
+### **Performance Metrics**
+- **Response Times**: Component-specific timing
+- **Throughput**: Operations per time period
+- **System Health**: Overall performance status
+- **Data Flow Patterns**: Common operation sequences
+
+## 🔍 Understanding Your Data Flow
+
+### **Architecture Overview**
+```
+Frontend (React) ↔ Supabase Auth ↔ Database (PostgreSQL)
+     ↓
+File Upload ↔ Supabase Storage ↔ AI Engine ↔ Compliance Checker
+     ↓
+Database ↔ Notification System ↔ User Dashboard
+```
+
+### **Key Data Flow Patterns**
+
+#### 1. **User Registration Flow**
+```
+User Input → Validation → Supabase User Creation → Profile Init → Welcome Notification
+```
+
+#### 2. **Document Processing Flow**
+```
+File Upload → Validation → Storage → Scan Trigger → AI Analysis → Result Save → Notification
+```
+
+#### 3. **Compliance Workflow**
+```
+Document Retrieval → AI Analysis → Compliance Check → Issue ID → Result Storage → Dashboard Update
+```
+
+#### 4. **Training Completion Flow**
+```
+Module Access → Progress Tracking → Completion Check → Certificate → Database Update → Notification
+```
+
+## 📈 Performance Targets
+
+### **Response Times**
+- Authentication: < 500ms
+- Document Upload: < 2000ms
+- Compliance Scan: < 5000ms
+- Database Query: < 100ms
+
+### **Throughput**
+- Concurrent Users: 100+
+- Documents per Minute: 50+
+- Scans per Hour: 1000+
+
+### **Error Rates**
+- Authentication Failures: < 1%
+- Upload Failures: < 2%
+- Scan Failures: < 5%
+
+## 🎛️ Available Monitoring Flows
+
+### **1. Complete User Journey**
+```python
+from healthguard_flows import monitor_complete_user_journey
+
+result = monitor_complete_user_journey(
+    user_id="your_user_id",
+    document_name="your_document.pdf",
+    scan_type="HIPAA"
+)
+```
+
+### **2. Performance Testing**
+```python
+from healthguard_flows import performance_testing_flow
+
+result = performance_testing_flow(
+    num_users=10,
+    operations_per_user=5
+)
+```
+
+### **3. Individual Component Monitoring**
+```python
+from healthguard_flows import (
+    monitor_user_authentication,
+    monitor_document_upload,
+    monitor_compliance_scan,
+    monitor_database_operations,
+    monitor_training_progress,
+    monitor_notification_system
+)
+```
+
+## 📊 Prefect Cloud Dashboard
+
+After running the monitoring, check your Prefect Cloud dashboard for:
+
+### **Flow Visualizations**
+- Mermaid diagrams of your data flow
+- Component interaction maps
+- Performance heatmaps
+
+### **Artifacts**
+- Detailed flow logs
+- Performance metrics
+- System architecture diagrams
+- User journey maps
+
+### **Real-time Monitoring**
+- Live data flow tracking
+- Performance alerts
+- Error notifications
+- Resource usage graphs
+
+## 🔧 Customization
+
+### **Add New Components**
+Edit `healthguard_flows.py`:
+```python
+@task
+def monitor_your_component(user_id: str, action: str) -> Dict[str, Any]:
+    """Monitor your custom component"""
+    # Your monitoring logic here
+    pass
+```
+
+### **Modify Performance Targets**
+```python
+# Update duration thresholds in the monitoring tasks
+"duration_ms": 1000,  # Your target response time
+```
+
+### **Add New Flow Patterns**
+```python
+# Create new flow functions
+@flow(name="healthguard360-custom-flow")
+def your_custom_flow():
+    # Your custom monitoring logic
+    pass
+```
+
+## 🛠️ Troubleshooting
+
+### **Common Issues**
+
+1. **"Module not found" errors**
+   - Ensure you're in the `monitoring/` directory
+   - Run `pip install -r requirements.txt`
+
+2. **Prefect API errors**
+   - Check your API key is correct
+   - Verify internet connection
+   - Ensure Prefect Cloud account is active
+
+3. **Import errors**
+   - Make sure Python path includes current directory
+   - Check file permissions
+
+### **Debug Mode**
+Add debug logging to see detailed flow information:
+```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
+```
+
+## 📝 Next Steps
+
+1. **Run the monitoring script** to see your current data flow
+2. **Review the Prefect Cloud dashboard** for visualizations
+3. **Identify bottlenecks** in your system
+4. **Optimize performance** based on insights
+5. **Set up alerts** for critical thresholds
+6. **Monitor real user data** as your application grows
+
+## 🎯 Benefits
+
+- **🔍 Visibility**: See exactly how data flows through your system
+- **🚀 Performance**: Identify and fix bottlenecks
+- **🛡️ Reliability**: Monitor error rates and system health
+- **📈 Scalability**: Understand capacity limits and scaling needs
+- **🔧 Debugging**: Quickly identify issues in complex workflows
+
+## 📁 File Structure
+
+```
+monitoring/
+├── requirements.txt          # Python dependencies
+├── healthguard_flows.py      # Main monitoring flows
+├── run_monitoring.py         # Runner script
+└── README.md                # This documentation
+```
+
+This monitoring setup gives you complete visibility into your HealthGuard360 architecture and helps you optimize performance and reliability.
+</file>
+
+<file path="monitoring/requirements.txt">
+prefect>=2.14.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+pydantic>=2.0.0
+</file>
+
+<file path="monitoring/run_monitoring.py">
+#!/usr/bin/env python3
+"""
+HealthGuard360 Data Flow Monitoring Runner
+Run this script to monitor and visualize your system's data flow
+"""
+⋮----
+# Add current directory to Python path
+⋮----
+def main()
+⋮----
+"""Main function to run HealthGuard360 data flow monitoring"""
+⋮----
+# Run complete user journey monitoring
+⋮----
+journey_result = monitor_complete_user_journey(
+⋮----
+# Run performance testing
+⋮----
+perf_result = performance_testing_flow(
+⋮----
+result = main()
+</file>
+
+<file path="postcss.config.js">
+
+</file>
+
+<file path="public/placeholder.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" fill="none"><rect width="1200" height="1200" fill="#EAEAEA" rx="3"/><g opacity=".5"><g opacity=".5"><path fill="#FAFAFA" d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/><path stroke="#C9C9C9" stroke-width="2.418" d="M600.709 736.5c-75.454 0-136.621-61.167-136.621-136.62 0-75.454 61.167-136.621 136.621-136.621 75.453 0 136.62 61.167 136.62 136.621 0 75.453-61.167 136.62-136.62 136.62Z"/></g><path stroke="url(#a)" stroke-width="2.418" d="M0-1.209h553.581" transform="scale(1 -1) rotate(45 1163.11 91.165)"/><path stroke="url(#b)" stroke-width="2.418" d="M404.846 598.671h391.726"/><path stroke="url(#c)" stroke-width="2.418" d="M599.5 795.742V404.017"/><path stroke="url(#d)" stroke-width="2.418" d="m795.717 796.597-391.441-391.44"/><path fill="#fff" d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/><g clip-path="url(#e)"><path fill="#666" fill-rule="evenodd" d="M616.426 586.58h-31.434v16.176l3.553-3.554.531-.531h9.068l.074-.074 8.463-8.463h2.565l7.18 7.181V586.58Zm-15.715 14.654 3.698 3.699 1.283 1.282-2.565 2.565-1.282-1.283-5.2-5.199h-6.066l-5.514 5.514-.073.073v2.876a2.418 2.418 0 0 0 2.418 2.418h26.598a2.418 2.418 0 0 0 2.418-2.418v-8.317l-8.463-8.463-7.181 7.181-.071.072Zm-19.347 5.442v4.085a6.045 6.045 0 0 0 6.046 6.045h26.598a6.044 6.044 0 0 0 6.045-6.045v-7.108l1.356-1.355-1.282-1.283-.074-.073v-17.989h-38.689v23.43l-.146.146.146.147Z" clip-rule="evenodd"/></g><path stroke="#C9C9C9" stroke-width="2.418" d="M600.709 656.704c-31.384 0-56.825-25.441-56.825-56.824 0-31.384 25.441-56.825 56.825-56.825 31.383 0 56.824 25.441 56.824 56.825 0 31.383-25.441 56.824-56.824 56.824Z"/></g><defs><linearGradient id="a" x1="554.061" x2="-.48" y1=".083" y2=".087" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="b" x1="796.912" x2="404.507" y1="599.963" y2="599.965" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="c" x1="600.792" x2="600.794" y1="403.677" y2="796.082" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><linearGradient id="d" x1="404.85" x2="796.972" y1="403.903" y2="796.02" gradientUnits="userSpaceOnUse"><stop stop-color="#C9C9C9" stop-opacity="0"/><stop offset=".208" stop-color="#C9C9C9"/><stop offset=".792" stop-color="#C9C9C9"/><stop offset="1" stop-color="#C9C9C9" stop-opacity="0"/></linearGradient><clipPath id="e"><path fill="#fff" d="M581.364 580.535h38.689v38.689h-38.689z"/></clipPath></defs></svg>
+</file>
+
+<file path="public/robots.txt">
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: *
+Allow: /
+</file>
+
+<file path="README.md">
+# Welcome to your Lovable project
+
+## Project info
+
+**URL**: https://lovable.dev/projects/2b9c46a5-e2e8-45f3-81c9-e8999e431c96
+
+## How can I edit this code?
+
+There are several ways of editing your application.
+
+**Use Lovable**
+
+Simply visit the [Lovable Project](https://lovable.dev/projects/2b9c46a5-e2e8-45f3-81c9-e8999e431c96) and start prompting.
+
+Changes made via Lovable will be committed automatically to this repo.
+
+**Use your preferred IDE**
+
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+
+Follow these steps:
+
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
+
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
+
+# Step 3: Install the necessary dependencies.
+npm i
+
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
+
+**Edit a file directly in GitHub**
+
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
+
+**Use GitHub Codespaces**
+
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
+
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/2b9c46a5-e2e8-45f3-81c9-e8999e431c96) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes, you can!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+</file>
+
+<file path="src/App.css">
+#root {
+⋮----
+.logo {
+.logo:hover {
+.logo.react:hover {
+⋮----
+a:nth-of-type(2) .logo {
+⋮----
+.card {
+⋮----
+.read-the-docs {
+</file>
+
+<file path="src/components/AuditPreparation.tsx">
+import { useState } from "react";
+import { CheckCircle, FileText, Download, Calendar, AlertTriangle, Shield, Clipboard } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+⋮----
+const getStatusColor = (status) =>
+⋮----
+const getStatusIcon = (status) =>
+⋮----
+const getPriorityColor = (priority) =>
+⋮----
+{/* Readiness Overview */}
+⋮----
+</file>
+
+<file path="src/components/ComplianceChart.tsx">
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+⋮----
+interface ComplianceChartProps {
+  hipaa: number;
+  gdpr: number;
+  documentation: number;
+}
+⋮----
+export const ComplianceChart = (
+</file>
+
+<file path="src/components/Header.tsx">
+import { Shield, User, LogOut } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { useAuth } from '@/hooks/useAuth';
+import { useToast } from '@/hooks/use-toast';
+⋮----
+export const Header = () =>
+⋮----
+const handleSignOut = async () =>
+</file>
+
+<file path="src/components/PatientDataSecurity.tsx">
+import { useState } from "react";
+import { Database, Shield, Upload, Search, FileText, Lock, Download, Eye } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+⋮----
+{/* Security Overview */}
+</file>
+
+<file path="src/components/RiskDashboard.tsx">
+import { AlertTriangle, Shield, Activity, TrendingUp, Eye, Lock } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Button } from "@/components/ui/button";
+⋮----
+const getStatusColor = (status) =>
+⋮----
+const getSeverityColor = (severity) =>
+⋮----
+{/* Risk Overview */}
+⋮----
+{/* Security Categories */}
+⋮----
+{/* Recent Threats */}
+⋮----
+{/* Action Center */}
+</file>
+
+<file path="src/components/TrainingModule.tsx">
+import { useState } from "react";
+import { Users, Play, CheckCircle, Clock, Award, BookOpen, Target } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+⋮----
+const getStatusColor = (status) =>
+⋮----
+const getDifficultyColor = (difficulty) =>
+⋮----
+{/* Training Overview */}
+</file>
+
+<file path="src/components/ui/accordion.tsx">
+import { ChevronDown } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/alert-dialog.tsx">
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/button"
+</file>
+
+<file path="src/components/ui/alert.tsx">
+import { cva, type VariantProps } from "class-variance-authority"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/aspect-ratio.tsx">
+
+</file>
+
+<file path="src/components/ui/avatar.tsx">
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/badge.tsx">
+import { cva, type VariantProps } from "class-variance-authority"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+export interface BadgeProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof badgeVariants> {}
+⋮----
+<div className=
+</file>
+
+<file path="src/components/ui/breadcrumb.tsx">
+import { Slot } from "@radix-ui/react-slot"
+import { ChevronRight, MoreHorizontal } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/button.tsx">
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+}
+</file>
+
+<file path="src/components/ui/calendar.tsx">
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { DayPicker } from "react-day-picker";
+⋮----
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+⋮----
+export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+</file>
+
+<file path="src/components/ui/card.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+className=
+⋮----
+<div ref=
+</file>
+
+<file path="src/components/ui/carousel.tsx">
+import useEmblaCarousel, {
+  type UseEmblaCarouselType,
+} from "embla-carousel-react"
+import { ArrowLeft, ArrowRight } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+⋮----
+type CarouselApi = UseEmblaCarouselType[1]
+type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
+type CarouselOptions = UseCarouselParameters[0]
+type CarouselPlugin = UseCarouselParameters[1]
+⋮----
+type CarouselProps = {
+  opts?: CarouselOptions
+  plugins?: CarouselPlugin
+  orientation?: "horizontal" | "vertical"
+  setApi?: (api: CarouselApi) => void
+}
+⋮----
+type CarouselContextProps = {
+  carouselRef: ReturnType<typeof useEmblaCarousel>[0]
+  api: ReturnType<typeof useEmblaCarousel>[1]
+  scrollPrev: () => void
+  scrollNext: () => void
+  canScrollPrev: boolean
+  canScrollNext: boolean
+} & CarouselProps
+⋮----
+function useCarousel()
+</file>
+
+<file path="src/components/ui/chart.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+// Format: { THEME_NAME: CSS_SELECTOR }
+⋮----
+export type ChartConfig = {
+  [k in string]: {
+    label?: React.ReactNode
+    icon?: React.ComponentType
+  } & (
+    | { color?: string; theme?: never }
+    | { color?: never; theme: Record<keyof typeof THEMES, string> }
+  )
+}
+⋮----
+type ChartContextProps = {
+  config: ChartConfig
+}
+⋮----
+function useChart()
+⋮----
+className=
+⋮----
+<div className=
+⋮----
+// Helper to extract item config from a payload.
+</file>
+
+<file path="src/components/ui/checkbox.tsx">
+import { Check } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/collapsible.tsx">
+
+</file>
+
+<file path="src/components/ui/command.tsx">
+import { type DialogProps } from "@radix-ui/react-dialog"
+import { Command as CommandPrimitive } from "cmdk"
+import { Search } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+import { Dialog, DialogContent } from "@/components/ui/dialog"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/context-menu.tsx">
+import { Check, ChevronRight, Circle } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/dialog.tsx">
+import { X } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/drawer.tsx">
+import { Drawer as DrawerPrimitive } from "vaul"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+const Drawer = (
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/dropdown-menu.tsx">
+import { Check, ChevronRight, Circle } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/form.tsx">
+import { Slot } from "@radix-ui/react-slot"
+import {
+  Controller,
+  ControllerProps,
+  FieldPath,
+  FieldValues,
+  FormProvider,
+  useFormContext,
+} from "react-hook-form"
+⋮----
+import { cn } from "@/lib/utils"
+import { Label } from "@/components/ui/label"
+⋮----
+type FormFieldContextValue<
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+> = {
+  name: TName
+}
+⋮----
+const FormField = <
+  TFieldValues extends FieldValues = FieldValues,
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+>({
+  ...props
+}: ControllerProps<TFieldValues, TName>) =>
+⋮----
+const useFormField = () =>
+⋮----
+type FormItemContextValue = {
+  id: string
+}
+⋮----
+<div ref=
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/hover-card.tsx">
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/input-otp.tsx">
+import { OTPInput, OTPInputContext } from "input-otp"
+import { Dot } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+containerClassName=
+className=
+⋮----
+<div ref=
+</file>
+
+<file path="src/components/ui/input.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/label.tsx">
+import { cva, type VariantProps } from "class-variance-authority"
+⋮----
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/menubar.tsx">
+import { Check, ChevronRight, Circle } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/navigation-menu.tsx">
+import { cva } from "class-variance-authority"
+import { ChevronDown } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/pagination.tsx">
+import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+import { ButtonProps, buttonVariants } from "@/components/ui/button"
+⋮----
+const Pagination = (
+⋮----
+className=
+⋮----
+<li ref=
+⋮----
+const PaginationPrevious = (
+</file>
+
+<file path="src/components/ui/popover.tsx">
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/progress.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/radio-group.tsx">
+import { Circle } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/resizable.tsx">
+import { GripVertical } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/scroll-area.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/select.tsx">
+import { Check, ChevronDown, ChevronUp } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/separator.tsx">
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/sheet.tsx">
+import { cva, type VariantProps } from "class-variance-authority"
+import { X } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+interface SheetContentProps
+  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
+  VariantProps<typeof sheetVariants> { }
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/sidebar.tsx">
+import { Slot } from "@radix-ui/react-slot"
+import { VariantProps, cva } from "class-variance-authority"
+import { PanelLeft } from "lucide-react"
+⋮----
+import { useIsMobile } from "@/hooks/use-mobile"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Separator } from "@/components/ui/separator"
+import { Sheet, SheetContent } from "@/components/ui/sheet"
+import { Skeleton } from "@/components/ui/skeleton"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+⋮----
+type SidebarContext = {
+  state: "expanded" | "collapsed"
+  open: boolean
+  setOpen: (open: boolean) => void
+  openMobile: boolean
+  setOpenMobile: (open: boolean) => void
+  isMobile: boolean
+  toggleSidebar: () => void
+}
+⋮----
+function useSidebar()
+⋮----
+// This is the internal state of the sidebar.
+// We use openProp and setOpenProp for control from outside the component.
+⋮----
+// This sets the cookie to keep the sidebar state.
+⋮----
+// Helper to toggle the sidebar.
+⋮----
+// Adds a keyboard shortcut to toggle the sidebar.
+⋮----
+const handleKeyDown = (event: KeyboardEvent) =>
+⋮----
+// We add a state so that we can do data-state="expanded" or "collapsed".
+// This makes it easier to style the sidebar with Tailwind classes.
+⋮----
+className=
+⋮----
+{/* This is what handles the sidebar gap on desktop */}
+⋮----
+// Adjust the padding for floating and inset variants.
+⋮----
+onClick?.(event)
+toggleSidebar()
+⋮----
+// Increases the hit area of the button on mobile.
+⋮----
+// Increases the hit area of the button on mobile.
+⋮----
+// Random width between 50 to 90%.
+</file>
+
+<file path="src/components/ui/skeleton.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/slider.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/sonner.tsx">
+import { useTheme } from "next-themes"
+import { Toaster as Sonner, toast } from "sonner"
+⋮----
+type ToasterProps = React.ComponentProps<typeof Sonner>
+⋮----
+const Toaster = (
+</file>
+
+<file path="src/components/ui/switch.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/table.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+className=
+⋮----
+<thead ref=
+</file>
+
+<file path="src/components/ui/tabs.tsx">
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/textarea.tsx">
+import { cn } from "@/lib/utils"
+⋮----
+export interface TextareaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/toast.tsx">
+import { cva, type VariantProps } from "class-variance-authority"
+import { X } from "lucide-react"
+⋮----
+import { cn } from "@/lib/utils"
+⋮----
+className=
+⋮----
+type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>
+⋮----
+type ToastActionElement = React.ReactElement<typeof ToastAction>
+</file>
+
+<file path="src/components/ui/toaster.tsx">
+import { useToast } from "@/hooks/use-toast"
+import {
+  Toast,
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+} from "@/components/ui/toast"
+</file>
+
+<file path="src/components/ui/toggle-group.tsx">
+import { type VariantProps } from "class-variance-authority"
+⋮----
+import { cn } from "@/lib/utils"
+import { toggleVariants } from "@/components/ui/toggle"
+⋮----
+className=
+</file>
+
+<file path="src/components/ui/toggle.tsx">
+import { cva, type VariantProps } from "class-variance-authority"
+⋮----
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/tooltip.tsx">
+import { cn } from "@/lib/utils"
+</file>
+
+<file path="src/components/ui/use-toast.ts">
+import { useToast, toast } from "@/hooks/use-toast";
+</file>
+
+<file path="src/contexts/AuthContext.tsx">
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { User, Session } from '@supabase/supabase-js';
+import { supabase } from '@/integrations/supabase/client';
+⋮----
+interface AuthContextType {
+  user: User | null;
+  session: Session | null;
+  isLoading: boolean;
+  signOut: () => Promise<void>;
+}
+⋮----
+export const useAuthContext = () =>
+⋮----
+export const AuthProvider: React.FC<
+⋮----
+// Set up auth state listener
+⋮----
+// Check for existing session
+⋮----
+const signOut = async () =>
+</file>
+
+<file path="src/hooks/use-mobile.tsx">
+export function useIsMobile()
+⋮----
+const onChange = () =>
+</file>
+
+<file path="src/hooks/use-toast.ts">
+import type {
+  ToastActionElement,
+  ToastProps,
+} from "@/components/ui/toast"
+⋮----
+type ToasterToast = ToastProps & {
+  id: string
+  title?: React.ReactNode
+  description?: React.ReactNode
+  action?: ToastActionElement
+}
+⋮----
+function genId()
+⋮----
+type ActionType = typeof actionTypes
+⋮----
+type Action =
+  | {
+      type: ActionType["ADD_TOAST"]
+      toast: ToasterToast
+    }
+  | {
+      type: ActionType["UPDATE_TOAST"]
+      toast: Partial<ToasterToast>
+    }
+  | {
+      type: ActionType["DISMISS_TOAST"]
+      toastId?: ToasterToast["id"]
+    }
+  | {
+      type: ActionType["REMOVE_TOAST"]
+      toastId?: ToasterToast["id"]
+    }
+⋮----
+interface State {
+  toasts: ToasterToast[]
+}
+⋮----
+const addToRemoveQueue = (toastId: string) =>
+⋮----
+export const reducer = (state: State, action: Action): State =>
+⋮----
+// ! Side effects ! - This could be extracted into a dismissToast() action,
+// but I'll keep it here for simplicity
+⋮----
+function dispatch(action: Action)
+⋮----
+type Toast = Omit<ToasterToast, "id">
+⋮----
+function toast(
+⋮----
+const update = (props: ToasterToast)
+const dismiss = () => dispatch(
+⋮----
+function useToast()
+</file>
+
+<file path="src/hooks/useComplianceStats.ts">
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from './useAuth';
+⋮----
+interface ComplianceStats {
+  overall: number;
+  hipaa: number;
+  gdpr: number;
+  documentation: number;
+  totalReports: number;
+  criticalIssues: number;
+  warningIssues: number;
+  infoIssues: number;
+}
+⋮----
+export const useComplianceStats = () =>
+⋮----
+// Return default values when no reports exist
+⋮----
+// Calculate overall score as average
+⋮----
+// Count issues by type
+⋮----
+// For now, use overall score for HIPAA/GDPR/Documentation
+// In the future, these could be calculated based on specific compliance standards
+⋮----
+gdpr: Math.max(0, overall - 5), // Slightly lower for variety
+⋮----
+staleTime: 5 * 60 * 1000, // 5 minutes
+</file>
+
+<file path="src/hooks/useRecentActivities.ts">
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from './useAuth';
+⋮----
+interface RecentActivity {
+  id: string;
+  type: string;
+  message: string;
+  time: string;
+  status: 'success' | 'warning' | 'info';
+}
+⋮----
+export const useRecentActivities = () =>
+⋮----
+staleTime: 2 * 60 * 1000, // 2 minutes
+⋮----
+function getRelativeTime(timestamp: string): string
+⋮----
+function getStatusFromType(type: string | null): 'success' | 'warning' | 'info'
+</file>
+
+<file path="src/hooks/useTrainingProgress.ts">
+import { useQuery } from '@tanstack/react-query';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from './useAuth';
+⋮----
+interface TrainingProgress {
+  totalModules: number;
+  completedModules: number;
+  progressPercentage: number;
+  recentlyCompleted: Array<{
+    id: string;
+    title: string;
+    completedAt: string;
+  }>;
+}
+⋮----
+export const useTrainingProgress = () =>
+⋮----
+// Get all training modules
+⋮----
+// Get user's training progress
+⋮----
+staleTime: 5 * 60 * 1000, // 5 minutes
+</file>
+
+<file path="src/hooks/useUploadDocument.ts">
+import { useState } from 'react';
+import { uploadDocument } from '@/integrations/supabase/storage';
+import { useAuth } from './useAuth';
+import { useToast } from '@/hooks/use-toast';
+⋮----
+export const useUploadDocument = () =>
+⋮----
+const upload = async (file: File) =>
+</file>
+
+<file path="src/index.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+⋮----
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+⋮----
+@layer base {
+⋮----
+:root {
+⋮----
+.dark {
+⋮----
+* {
+⋮----
+@apply border-border;
+⋮----
+body {
+</file>
+
+<file path="src/integrations/supabase/auth.ts">
+import { supabase } from './client';
+import type { User, Session } from '@supabase/supabase-js';
+⋮----
+export interface SignUpData {
+  email: string;
+  password: string;
+  clinic_name: string;
+  standards: string[];
+}
+⋮----
+export interface AuthResponse {
+  user: User | null;
+  session: Session | null;
+  error: Error | null;
+}
+⋮----
+export const signUp = async (data: SignUpData): Promise<AuthResponse> =>
+⋮----
+// Update the user profile with additional data
+⋮----
+export const signIn = async (email: string, password: string): Promise<AuthResponse> =>
+⋮----
+export const signOut = async (): Promise<
+⋮----
+export const getUser = async (): Promise<
+⋮----
+export const getSession = async (): Promise<
+⋮----
+export const getUserProfile = async (userId: string) =>
+</file>
+
+<file path="src/integrations/supabase/client.ts">
+// This file is automatically generated. Do not edit it directly.
+import { createClient } from '@supabase/supabase-js';
+import type { Database } from './types';
+⋮----
+// Import the supabase client like this:
+// import { supabase } from "@/integrations/supabase/client";
+</file>
+
+<file path="src/integrations/supabase/storage.ts">
+import { supabase } from './client';
+⋮----
+export interface UploadResult {
+  path: string;
+  name: string;
+  error?: string;
+}
+⋮----
+export const uploadDocument = async (
+  file: File, 
+  user_id: string
+): Promise<UploadResult> =>
+⋮----
+export const getDocument = async (documentPath: string): Promise<
+⋮----
+export const listUserDocuments = async (user_id: string) =>
+⋮----
+export const deleteDocument = async (documentPath: string) =>
+</file>
+
+<file path="src/lib/utils.ts">
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+⋮----
+export function cn(...inputs: ClassValue[])
+</file>
+
+<file path="src/main.tsx">
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+</file>
+
+<file path="src/pages/NotFound.tsx">
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+⋮----
+const NotFound = () =>
+</file>
+
+<file path="src/pages/Signup.tsx">
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Shield, Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useToast } from '@/hooks/use-toast';
+import { signUp } from '@/integrations/supabase/auth';
+⋮----
+type SignupForm = z.infer<typeof signupSchema>;
+⋮----
+const handleStandardChange = (standardId: string, checked: boolean) =>
+⋮----
+const onSubmit = async (data: SignupForm) =>
+⋮----
+checked=
+⋮----
+handleStandardChange(standard.id, checked as boolean)
+</file>
+
+<file path="src/vite-env.d.ts">
+/// <reference types="vite/client" />
+</file>
+
+<file path="supabase/config.toml">
+project_id = "gqfrcnelxlfivjpsimfs"
+</file>
+
+<file path="supabase/functions/complianceScan/index.ts">
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.45.0";
+⋮----
+interface ScanRequest {
+  documentPath: string;
+  documentName: string;
+  text: string;
+}
+⋮----
+interface ComplianceIssue {
+  type: 'critical' | 'warning' | 'info';
+  title: string;
+  description: string;
+  suggestion: string;
+}
+⋮----
+// Keyword-based compliance checker logic
+const scanDocumentForCompliance = (text: string) =>
+⋮----
+// Critical issues
+⋮----
+// Warning issues
+⋮----
+// Info issues
+⋮----
+// Calculate score (100 - 10 per critical, 5 per warning, 2 per info)
+⋮----
+// Get user from auth header
+⋮----
+// Perform compliance scan
+⋮----
+// Save result to database
+⋮----
+// Log the action
+</file>
+
+<file path="supabase/migrations/20250622154403-37745fb7-f4cf-4805-a518-603293ecaff5.sql">
+-- Enable necessary extensions
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- Create custom types
+CREATE TYPE user_role AS ENUM ('admin', 'staff');
+CREATE TYPE issue_type AS ENUM ('critical', 'warning', 'info');
+CREATE TYPE risk_type AS ENUM ('phishing', 'unauthorized_access', 'data_exposure', 'malware', 'insider_threat');
+
+-- Users table (profiles table that references auth.users)
+CREATE TABLE public.users (
+  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  email TEXT NOT NULL,
+  role user_role DEFAULT 'staff',
+  clinic_name TEXT,
+  standards JSONB DEFAULT '[]'::jsonb,
+  trial_status BOOLEAN DEFAULT true,
+  trial_expires_at TIMESTAMP WITH TIME ZONE DEFAULT (now() + interval '7 days'),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+-- Compliance reports table
+CREATE TABLE public.compliance_reports (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE CASCADE NOT NULL,
+  document_id TEXT,
+  document_name TEXT,
+  score INTEGER DEFAULT 0,
+  issues JSONB DEFAULT '[]'::jsonb,
+  scanned_text TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+-- Risk logs table
+CREATE TABLE public.risk_logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE CASCADE NOT NULL,
+  type risk_type NOT NULL,
+  severity TEXT DEFAULT 'medium',
+  title TEXT NOT NULL,
+  description TEXT,
+  status TEXT DEFAULT 'active',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  resolved_at TIMESTAMP WITH TIME ZONE
+);
+
+-- Training modules table
+CREATE TABLE public.training_modules (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title TEXT NOT NULL,
+  description TEXT,
+  duration_minutes INTEGER DEFAULT 30,
+  difficulty TEXT DEFAULT 'beginner',
+  video_url TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+-- Training progress table
+CREATE TABLE public.training_progress (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE CASCADE NOT NULL,
+  module_id UUID REFERENCES public.training_modules(id) ON DELETE CASCADE NOT NULL,
+  completed BOOLEAN DEFAULT false,
+  score INTEGER,
+  completed_at TIMESTAMP WITH TIME ZONE,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  UNIQUE(user_id, module_id)
+);
+
+-- Notifications table
+CREATE TABLE public.notifications (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE CASCADE NOT NULL,
+  type TEXT NOT NULL,
+  title TEXT NOT NULL,
+  message TEXT,
+  read BOOLEAN DEFAULT false,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+-- Audit logs table
+CREATE TABLE public.audit_logs (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES public.users(id) ON DELETE CASCADE NOT NULL,
+  action TEXT NOT NULL,
+  resource_type TEXT,
+  resource_id TEXT,
+  details JSONB,
+  ip_address INET,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+-- Enable Row Level Security
+ALTER TABLE public.users ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.compliance_reports ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.risk_logs ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.training_modules ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.training_progress ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.notifications ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.audit_logs ENABLE ROW LEVEL SECURITY;
+
+-- RLS Policies for users table
+CREATE POLICY "Users can view their own profile" 
+  ON public.users FOR SELECT 
+  USING (auth.uid() = id);
+
+CREATE POLICY "Users can update their own profile" 
+  ON public.users FOR UPDATE 
+  USING (auth.uid() = id);
+
+-- RLS Policies for compliance_reports
+CREATE POLICY "Users can view their own compliance reports" 
+  ON public.compliance_reports FOR SELECT 
+  USING (auth.uid() = user_id);
+
+CREATE POLICY "Users can create compliance reports" 
+  ON public.compliance_reports FOR INSERT 
+  WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can update their own compliance reports" 
+  ON public.compliance_reports FOR UPDATE 
+  USING (auth.uid() = user_id);
+
+-- RLS Policies for risk_logs
+CREATE POLICY "Users can view their own risk logs" 
+  ON public.risk_logs FOR SELECT 
+  USING (auth.uid() = user_id);
+
+CREATE POLICY "Users can create risk logs" 
+  ON public.risk_logs FOR INSERT 
+  WITH CHECK (auth.uid() = user_id);
+
+-- RLS Policies for training_modules (public read)
+CREATE POLICY "Anyone can view training modules" 
+  ON public.training_modules FOR SELECT 
+  TO authenticated
+  USING (true);
+
+-- RLS Policies for training_progress
+CREATE POLICY "Users can view their own training progress" 
+  ON public.training_progress FOR SELECT 
+  USING (auth.uid() = user_id);
+
+CREATE POLICY "Users can create training progress" 
+  ON public.training_progress FOR INSERT 
+  WITH CHECK (auth.uid() = user_id);
+
+CREATE POLICY "Users can update their own training progress" 
+  ON public.training_progress FOR UPDATE 
+  USING (auth.uid() = user_id);
+
+-- RLS Policies for notifications
+CREATE POLICY "Users can view their own notifications" 
+  ON public.notifications FOR SELECT 
+  USING (auth.uid() = user_id);
+
+CREATE POLICY "Users can update their own notifications" 
+  ON public.notifications FOR UPDATE 
+  USING (auth.uid() = user_id);
+
+-- RLS Policies for audit_logs
+CREATE POLICY "Users can view their own audit logs" 
+  ON public.audit_logs FOR SELECT 
+  USING (auth.uid() = user_id);
+
+-- Function to handle new user registration
+CREATE OR REPLACE FUNCTION public.handle_new_user()
+RETURNS TRIGGER AS $$
+BEGIN
+  INSERT INTO public.users (id, email, role, trial_status, trial_expires_at)
+  VALUES (
+    NEW.id,
+    NEW.email,
+    'staff',
+    true,
+    now() + interval '7 days'
+  );
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql SECURITY DEFINER;
+
+-- Trigger to create user profile on signup
+CREATE TRIGGER on_auth_user_created
+  AFTER INSERT ON auth.users
+  FOR EACH ROW EXECUTE PROCEDURE public.handle_new_user();
+
+-- Insert sample training modules
+INSERT INTO public.training_modules (title, description, duration_minutes, difficulty) VALUES
+('HIPAA Privacy Fundamentals', 'Essential privacy rules and patient rights under HIPAA', 45, 'beginner'),
+('Cybersecurity Awareness', 'Identify and prevent common cybersecurity threats', 30, 'beginner'),
+('Data Breach Response', 'Step-by-step guide to handling data breaches', 60, 'intermediate'),
+('GDPR Compliance', 'European data protection regulations for healthcare', 40, 'intermediate');
+
+-- Create storage bucket for compliance documents
+INSERT INTO storage.buckets (id, name, public) VALUES ('compliance-documents', 'compliance-documents', false);
+
+-- Storage policy for compliance documents
+CREATE POLICY "Users can upload their own documents" 
+  ON storage.objects FOR INSERT 
+  WITH CHECK (bucket_id = 'compliance-documents' AND auth.uid()::text = (storage.foldername(name))[1]);
+
+CREATE POLICY "Users can view their own documents" 
+  ON storage.objects FOR SELECT 
+  USING (bucket_id = 'compliance-documents' AND auth.uid()::text = (storage.foldername(name))[1]);
+
+CREATE POLICY "Users can update their own documents" 
+  ON storage.objects FOR UPDATE 
+  USING (bucket_id = 'compliance-documents' AND auth.uid()::text = (storage.foldername(name))[1]);
+
+CREATE POLICY "Users can delete their own documents" 
+  ON storage.objects FOR DELETE 
+  USING (bucket_id = 'compliance-documents' AND auth.uid()::text = (storage.foldername(name))[1]);
+</file>
+
+<file path="tailwind.config.ts">
+import type { Config } from "tailwindcss";
+</file>
+
+<file path="tsconfig.app.json">
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "strict": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitAny": false,
+    "noFallthroughCasesInSwitch": false,
+
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": false
+  }
+}
+</file>
+
+<file path="tsconfig.node.json">
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["vite.config.ts"]
+}
+</file>
+
+<file path="vite.config.ts">
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import path from "path";
+import { componentTagger } from "lovable-tagger";
+⋮----
+// https://vitejs.dev/config/
+</file>
+
+<file path="src/components/ComplianceAssistant.tsx">
+import { useState } from "react";
+import { useDropzone } from "react-dropzone";
+import { Upload, FileText, CheckCircle, AlertCircle, Brain, Download, Loader2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Textarea } from "@/components/ui/textarea";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { useUploadDocument } from "@/hooks/useUploadDocument";
+import { useScanCompliance } from "@/hooks/useScanCompliance";
+import { useToast } from "@/hooks/use-toast";
+⋮----
+const onDrop = async (acceptedFiles: File[]) =>
+⋮----
+// Validate file
+if (file.size > 5 * 1024 * 1024) { // 5MB limit
+⋮----
+// Read file content for scanning
+⋮----
+maxSize: 5 * 1024 * 1024, // 5MB
+⋮----
+const handleTextScan = async () =>
+⋮----
+const clearResults = () =>
+⋮----
+{/* Document Upload */}
+⋮----
+{/* Quick Compliance Check */}
+⋮----
+{/* Scan Results */}
+</file>
+
+<file path="src/components/ProtectedRoute.tsx">
+import { Navigate } from 'react-router-dom';
+import { Loader2 } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
+⋮----
+interface ProtectedRouteProps {
+  children: React.ReactNode;
+}
+⋮----
+const ProtectedRoute = (
+</file>
+
+<file path="src/hooks/useAuth.tsx">
+import { useAuthContext } from '@/contexts/AuthContext';
+⋮----
+export const useAuth = () =>
+</file>
+
+<file path="src/hooks/useScanCompliance.ts">
+import { useState } from 'react';
+import { scanDocumentForCompliance } from '@/integrations/compliance/checker';
+import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from './useAuth';
+import { useToast } from '@/hooks/use-toast';
+⋮----
+export interface ScanResult {
+  score: number;
+  issues: Array<{
+    type: 'critical' | 'warning' | 'info';
+    title: string;
+    description: string;
+    suggestion: string;
+  }>;
+}
+⋮----
+export const useScanCompliance = () =>
+⋮----
+const scanDocument = async (text: string, documentPath?: string, documentName?: string) =>
+⋮----
+// Save scan result to database - cast issues to Json type
+⋮----
+issues: result.issues as any, // Cast to Json type for Supabase
+scanned_text: text.substring(0, 1000) // Store first 1000 chars
+⋮----
+// Log the scan action
+⋮----
+} as any // Cast to Json type for Supabase
+</file>
+
+<file path="src/integrations/compliance/checker.ts">
+interface ComplianceIssue {
+  type: 'critical' | 'warning' | 'info';
+  title: string;
+  description: string;
+  suggestion: string;
+}
+⋮----
+interface ComplianceResult {
+  score: number;
+  issues: ComplianceIssue[];
+}
+⋮----
+// HIPAA and GDPR compliance keywords
+⋮----
+export const scanTextForCompliance = (text: string): ComplianceResult =>
+⋮----
+// Check for critical issues
+⋮----
+// Check for warning issues
+⋮----
+// Check for info issues
+⋮----
+// Calculate compliance score (100 - deductions for issues)
+⋮----
+// Ensure score doesn't go below 0
+⋮----
+// Updated function that accepts text directly instead of a File
+export const scanDocumentForCompliance = (text: string): ComplianceResult =>
+</file>
+
+<file path="src/integrations/supabase/types.ts">
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[]
+⋮----
+export type Database = {
+  public: {
+    Tables: {
+      audit_logs: {
+        Row: {
+          action: string
+          created_at: string | null
+          details: Json | null
+          id: string
+          ip_address: unknown | null
+          resource_id: string | null
+          resource_type: string | null
+          user_id: string
+        }
+        Insert: {
+          action: string
+          created_at?: string | null
+          details?: Json | null
+          id?: string
+          ip_address?: unknown | null
+          resource_id?: string | null
+          resource_type?: string | null
+          user_id: string
+        }
+        Update: {
+          action?: string
+          created_at?: string | null
+          details?: Json | null
+          id?: string
+          ip_address?: unknown | null
+          resource_id?: string | null
+          resource_type?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "audit_logs_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      compliance_reports: {
+        Row: {
+          created_at: string | null
+          document_id: string | null
+          document_name: string | null
+          id: string
+          issues: Json | null
+          scanned_text: string | null
+          score: number | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          document_id?: string | null
+          document_name?: string | null
+          id?: string
+          issues?: Json | null
+          scanned_text?: string | null
+          score?: number | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          document_id?: string | null
+          document_name?: string | null
+          id?: string
+          issues?: Json | null
+          scanned_text?: string | null
+          score?: number | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "compliance_reports_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      notifications: {
+        Row: {
+          created_at: string | null
+          id: string
+          message: string | null
+          read: boolean | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          message?: string | null
+          read?: boolean | null
+          title: string
+          type: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          message?: string | null
+          read?: boolean | null
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "notifications_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      risk_logs: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          id: string
+          resolved_at: string | null
+          severity: string | null
+          status: string | null
+          title: string
+          type: Database["public"]["Enums"]["risk_type"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          resolved_at?: string | null
+          severity?: string | null
+          status?: string | null
+          title: string
+          type: Database["public"]["Enums"]["risk_type"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          id?: string
+          resolved_at?: string | null
+          severity?: string | null
+          status?: string | null
+          title?: string
+          type?: Database["public"]["Enums"]["risk_type"]
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "risk_logs_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      training_modules: {
+        Row: {
+          created_at: string | null
+          description: string | null
+          difficulty: string | null
+          duration_minutes: number | null
+          id: string
+          title: string
+          video_url: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          description?: string | null
+          difficulty?: string | null
+          duration_minutes?: number | null
+          id?: string
+          title: string
+          video_url?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          description?: string | null
+          difficulty?: string | null
+          duration_minutes?: number | null
+          id?: string
+          title?: string
+          video_url?: string | null
+        }
+        Relationships: []
+      }
+      training_progress: {
+        Row: {
+          completed: boolean | null
+          completed_at: string | null
+          created_at: string | null
+          id: string
+          module_id: string
+          score: number | null
+          user_id: string
+        }
+        Insert: {
+          completed?: boolean | null
+          completed_at?: string | null
+          created_at?: string | null
+          id?: string
+          module_id: string
+          score?: number | null
+          user_id: string
+        }
+        Update: {
+          completed?: boolean | null
+          completed_at?: string | null
+          created_at?: string | null
+          id?: string
+          module_id?: string
+          score?: number | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "training_progress_module_id_fkey"
+            columns: ["module_id"]
+            isOneToOne: false
+            referencedRelation: "training_modules"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "training_progress_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      users: {
+        Row: {
+          clinic_name: string | null
+          created_at: string | null
+          email: string
+          id: string
+          role: Database["public"]["Enums"]["user_role"] | null
+          standards: Json | null
+          trial_expires_at: string | null
+          trial_status: boolean | null
+          updated_at: string | null
+        }
+        Insert: {
+          clinic_name?: string | null
+          created_at?: string | null
+          email: string
+          id: string
+          role?: Database["public"]["Enums"]["user_role"] | null
+          standards?: Json | null
+          trial_expires_at?: string | null
+          trial_status?: boolean | null
+          updated_at?: string | null
+        }
+        Update: {
+          clinic_name?: string | null
+          created_at?: string | null
+          email?: string
+          id?: string
+          role?: Database["public"]["Enums"]["user_role"] | null
+          standards?: Json | null
+          trial_expires_at?: string | null
+          trial_status?: boolean | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      issue_type: "critical" | "warning" | "info"
+      risk_type:
+        | "phishing"
+        | "unauthorized_access"
+        | "data_exposure"
+        | "malware"
+        | "insider_threat"
+      user_role: "admin" | "staff"
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
+}
+⋮----
+type DefaultSchema = Database[Extract<keyof Database, "public">]
+⋮----
+export type Tables<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
+    | { schema: keyof Database },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? (Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      Database[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+      Row: infer R
+    }
+    ? R
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])
+    ? (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
+        Row: infer R
+      }
+      ? R
+      : never
+    : never
+⋮----
+export type TablesInsert<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof Database },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Insert: infer I
+    }
+    ? I
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Insert: infer I
+      }
+      ? I
+      : never
+    : never
+⋮----
+export type TablesUpdate<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof Database },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Update: infer U
+    }
+    ? U
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Update: infer U
+      }
+      ? U
+      : never
+    : never
+⋮----
+export type Enums<
+  DefaultSchemaEnumNameOrOptions extends
+    | keyof DefaultSchema["Enums"]
+    | { schema: keyof Database },
+  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    : never = never,
+> = DefaultSchemaEnumNameOrOptions extends { schema: keyof Database }
+  ? Database[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+  : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
+    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
+    : never
+⋮----
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | keyof DefaultSchema["CompositeTypes"]
+    | { schema: keyof Database },
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
+    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+    : never
+</file>
+
+<file path="src/pages/Login.tsx">
+import { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Shield, Loader2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useToast } from '@/hooks/use-toast';
+import { signIn } from '@/integrations/supabase/auth';
+import { useAuth } from '@/hooks/useAuth';
+⋮----
+type LoginForm = z.infer<typeof loginSchema>;
+⋮----
+// Redirect if already authenticated
+⋮----
+const onSubmit = async (data: LoginForm) =>
+</file>
+
+<file path="src/App.tsx">
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Index from "./pages/Index";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import NotFound from "./pages/NotFound";
+</file>
+
+<file path="package.json">
+{
+  "name": "vite_react_shadcn_ts",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:dev": "vite build --mode development",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
+    "@radix-ui/react-accordion": "^1.2.0",
+    "@radix-ui/react-alert-dialog": "^1.1.1",
+    "@radix-ui/react-aspect-ratio": "^1.1.0",
+    "@radix-ui/react-avatar": "^1.1.0",
+    "@radix-ui/react-checkbox": "^1.1.1",
+    "@radix-ui/react-collapsible": "^1.1.0",
+    "@radix-ui/react-context-menu": "^2.2.1",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-dropdown-menu": "^2.1.1",
+    "@radix-ui/react-hover-card": "^1.1.1",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-menubar": "^1.1.1",
+    "@radix-ui/react-navigation-menu": "^1.2.0",
+    "@radix-ui/react-popover": "^1.1.1",
+    "@radix-ui/react-progress": "^1.1.0",
+    "@radix-ui/react-radio-group": "^1.2.0",
+    "@radix-ui/react-scroll-area": "^1.1.0",
+    "@radix-ui/react-select": "^2.1.1",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slider": "^1.2.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.1",
+    "@radix-ui/react-toggle": "^1.1.0",
+    "@radix-ui/react-toggle-group": "^1.1.0",
+    "@radix-ui/react-tooltip": "^1.1.4",
+    "@supabase/supabase-js": "^2.50.0",
+    "@tanstack/react-query": "^5.56.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cmdk": "^1.0.0",
+    "date-fns": "^3.6.0",
+    "embla-carousel-react": "^8.3.0",
+    "input-otp": "^1.2.4",
+    "lucide-react": "^0.462.0",
+    "next-themes": "^0.3.0",
+    "react": "^18.3.1",
+    "react-day-picker": "^8.10.1",
+    "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.8",
+    "react-hook-form": "^7.58.1",
+    "react-resizable-panels": "^2.1.3",
+    "react-router-dom": "^6.26.2",
+    "recharts": "^2.12.7",
+    "sonner": "^1.5.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^0.9.3",
+    "zod": "^3.25.67"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.0",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/node": "^22.5.5",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "lovable-tagger": "^1.1.7",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.11",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1"
+  }
+}
+</file>
+
+<file path="src/pages/Index.tsx">
+import { useState, useEffect } from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Upload, FileText, Shield, Users, TrendingUp, AlertTriangle, CheckCircle, Clock } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
+import { useScanCompliance } from '@/hooks/useScanCompliance';
+import { useUploadDocument } from '@/hooks/useUploadDocument';
+import { useComplianceStats } from '@/hooks/useComplianceStats';
+import { useRecentActivities } from '@/hooks/useRecentActivities';
+import { useTrainingProgress } from '@/hooks/useTrainingProgress';
+import { ComplianceChart } from '@/components/ComplianceChart';
+import { Header } from '@/components/Header';
+import { useAuth } from '@/hooks/useAuth';
+⋮----
+// Debug logging
+⋮----
+// Show loading state while auth is loading
+⋮----
+// Show error state if there are issues
+⋮----
+const getScoreColor = (score: number | undefined): string =>
+⋮----
+const getSeverityIcon = (status: string) =>
+⋮----
+{/* Stats Overview */}
+⋮----
+{/* Compliance Chart */}
+⋮----
+{/* Recent Activities */}
+⋮----
+</file>
+
+</files>

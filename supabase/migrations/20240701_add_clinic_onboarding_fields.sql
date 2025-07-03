@@ -1,0 +1,17 @@
+ALTER TABLE public.users
+  ADD COLUMN address TEXT,
+  ADD COLUMN city TEXT,
+  ADD COLUMN state TEXT,
+  ADD COLUMN zip TEXT,
+  ADD COLUMN country TEXT,
+  ADD COLUMN contact_phone TEXT,
+  ADD COLUMN primary_contact_name TEXT,
+  ADD COLUMN primary_contact_email TEXT,
+  ADD COLUMN primary_contact_phone TEXT,
+  ADD COLUMN clinic_type TEXT,
+  ADD COLUMN license_number TEXT,
+  ADD COLUMN license_authority TEXT,
+  ADD COLUMN license_expiration DATE,
+  ADD COLUMN compliance_officer_name TEXT,
+  ADD COLUMN compliance_officer_email TEXT,
+  ADD COLUMN compliance_officer_phone TEXT; 
