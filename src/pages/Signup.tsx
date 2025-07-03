@@ -82,6 +82,22 @@ const Signup = () => {
         password: data.password,
         clinic_name: data.clinic_name,
         standards: data.standards,
+        address: data.address,
+        city: data.city,
+        state: data.state,
+        zip: data.zip,
+        country: data.country,
+        contact_phone: data.contact_phone,
+        primary_contact_name: data.primary_contact_name,
+        primary_contact_email: data.primary_contact_email,
+        primary_contact_phone: data.primary_contact_phone,
+        clinic_type: data.clinic_type,
+        license_number: data.license_number,
+        license_authority: data.license_authority,
+        license_expiration: data.license_expiration,
+        compliance_officer_name: data.compliance_officer_name,
+        compliance_officer_email: data.compliance_officer_email,
+        compliance_officer_phone: data.compliance_officer_phone,
       });
       
       if (error) {
